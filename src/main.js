@@ -1,4 +1,6 @@
-`use strict`
+'use strict';
+
+const TASK__COUNT = 3;
 
 const createSiteMenuTemplate = () => {
   return (
@@ -169,5 +171,24 @@ const createLoadMoreButtonTemplate = () => {
 };
 
 const render = (container, template, place) => {
-  container.insertAdjacentHTML(place, template)
+  container.insertAdjacentHTML(place, template);
+};
+
+const siteMainElement = document.querySelector(`.main`);
+const siteMenuElement = siteMainElement.querySelector(`.main__control`);
+
+render(siteMenuElement, createSiteMenuTemplate(), `beforeend`);
+render(siteMainElement, createFilterTemplate(), `beforeend`);
+render(siteMainElement, createBoardTemplate(), `beforeend`);
+
+const boardElement = siteMainElement.querySelector(`.board`);
+
+render(boardElement, createTasksSortTemplate(), `afterbegin`);
+
+const boardTasksElement = boardElement.querySelector(`.board__tasks`);
+
+for (let i = 0; i < TASK__COUNT; i++) {
+  render(boardTasksElement, createTaskTemplate(), `beforeend`);
 }
+
+render(boardElement, createLoadMoreButtonTemplate(), `beforeend`);
