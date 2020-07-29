@@ -1,6 +1,6 @@
 'use strict';
 
-const TASK__COUNT = 3;
+const TASK_COUNT = 3;
 
 const createSiteMenuTemplate = () => {
   return (
@@ -389,7 +389,7 @@ const taskListElement = boardElement.querySelector(`.board__tasks`);
 render(boardElement, createTasksSortTemplate(), `afterbegin`);
 render(taskListElement, createTaskEditTemplate(), `beforeend`);
 
-for (let i = 0; i < TASK__COUNT; i++) {
+for (let i = 0; i < TASK_COUNT; i++) {
   render(taskListElement, createTaskTemplate(), `beforeend`);
 }
 
