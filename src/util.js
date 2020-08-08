@@ -16,4 +16,16 @@ const getElementFromArray = (array) => {
   return array[randomIndex];
 };
 
-export {render, getRandomInteger, getElementFromArray};
+const isTaskExpired = (dueDate) => {
+  if (dueDate === null) {
+    return false;
+  }
+
+  let currentDate = new Date();
+  currentDate.setHours(23, 59, 59, 999);
+  currentDate = new Date(currentDate);
+
+  return currentDate.getTime() > dueDate.getTime();
+};
+
+export {render, getRandomInteger, getElementFromArray, isTaskExpired};

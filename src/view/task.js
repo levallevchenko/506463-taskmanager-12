@@ -1,3 +1,5 @@
+import {isTaskExpired} from "../util.js";
+
 export const createTaskTemplate = (task) => {
 
   const {color, description, dueDate} = task;
@@ -6,8 +8,12 @@ export const createTaskTemplate = (task) => {
     ? dueDate.toLocaleString(`en-US`, {day: `numeric`, month: `long`})
     : ``;
 
+  const deadlineClassName = isTaskExpired(dueDate)
+    ? `card--deadline`
+    : ``;
+
   return (
-    `<article class="card card--${color}">
+    `<article class="card card--${color} ${deadlineClassName}">
       <div class="card__form">
         <div class="card__inner">
           <div class="card__control">

@@ -8,7 +8,7 @@ import {createTaskTemplate} from "./view/task.js";
 import {createLoadMoreButtonTemplate} from "./view/load-more-button.js";
 import {generateTask} from "./mock/task.js";
 
-const TASK_COUNT = 21;
+const TASK_COUNT = 100;
 
 const tasks = new Array(TASK_COUNT).fill().map(generateTask);
 
