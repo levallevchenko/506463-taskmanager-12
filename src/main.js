@@ -8,10 +8,9 @@ import {createTaskTemplate} from "./view/task.js";
 import {createLoadMoreButtonTemplate} from "./view/load-more-button.js";
 import {generateTask} from "./mock/task.js";
 
-const TASK_COUNT = 3;
+const TASK_COUNT = 21;
 
 const tasks = new Array(TASK_COUNT).fill().map(generateTask);
-console.log(tasks);
 
 const siteMainElement = document.querySelector(`.main`);
 const siteMenuElement = siteMainElement.querySelector(`.main__control`);
@@ -27,7 +26,7 @@ render(boardElement, createTasksSortTemplate(), `afterbegin`);
 render(taskListElement, createTaskEditTemplate(), `beforeend`);
 
 for (let i = 0; i < TASK_COUNT; i++) {
-  render(taskListElement, createTaskTemplate(), `beforeend`);
+  render(taskListElement, createTaskTemplate(tasks[i]), `beforeend`);
 }
 
 render(boardElement, createLoadMoreButtonTemplate(), `beforeend`);
