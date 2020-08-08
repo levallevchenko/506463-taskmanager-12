@@ -6,8 +6,12 @@ import {createTasksSortTemplate} from "./view/task-sort.js";
 import {createTaskEditTemplate} from "./view/task-edit.js";
 import {createTaskTemplate} from "./view/task.js";
 import {createLoadMoreButtonTemplate} from "./view/load-more-button.js";
+import {generateTask} from "./mock/task.js";
 
 const TASK_COUNT = 3;
+
+const tasks = new Array(TASK_COUNT).fill().map(generateTask);
+console.log(tasks);
 
 const siteMainElement = document.querySelector(`.main`);
 const siteMenuElement = siteMainElement.querySelector(`.main__control`);
