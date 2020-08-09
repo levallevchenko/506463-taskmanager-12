@@ -28,4 +28,8 @@ const isTaskExpired = (dueDate) => {
   return currentDate.getTime() > dueDate.getTime();
 };
 
-export {render, getRandomInteger, getElementFromArray, isTaskExpired};
+const isTaskRepeating = (repeating) => {
+  return Object.values(repeating).some(Boolean);
+};
+
+export {render, getRandomInteger, getElementFromArray, isTaskExpired, isTaskRepeating};
