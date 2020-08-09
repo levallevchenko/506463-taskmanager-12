@@ -1,3 +1,4 @@
+import {COLORS} from "../const.js";
 import {getRandomInteger, getElementFromArray} from "../util.js";
 
 const descriptions = [
@@ -5,8 +6,6 @@ const descriptions = [
   `Сделать домашку`,
   `Пройти интенсив на соточку`,
 ];
-
-const colors = [`black`, `yellow`, `blue`, `green`, `pink`];
 
 const generateDate = () => {
 
@@ -41,7 +40,7 @@ const generateRepeatingDays = () => {
 
 export const generateTask = () => {
   const description = getElementFromArray(descriptions);
-  const color = getElementFromArray(colors);
+  const color = getElementFromArray(COLORS);
   const dueDate = generateDate();
   const repeatingDays = dueDate === null
     ? generateRepeatingDays()

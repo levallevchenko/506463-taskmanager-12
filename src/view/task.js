@@ -1,11 +1,11 @@
-import {isTaskExpired, isTaskRepeating} from "../util.js";
+import {isTaskExpired, isTaskRepeating, humanizeTaskDueDate} from "../util.js";
 
 export const createTaskTemplate = (task) => {
 
   const {color, description, dueDate, repeatingDays, isArchive, isFavorite} = task;
 
   const date = dueDate !== null
-    ? dueDate.toLocaleString(`en-US`, {day: `numeric`, month: `long`})
+    ? humanizeTaskDueDate(dueDate)
     : ``;
 
   const deadlineClassName = isTaskExpired(dueDate)

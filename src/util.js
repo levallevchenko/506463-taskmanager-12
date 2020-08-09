@@ -32,4 +32,8 @@ const isTaskRepeating = (repeating) => {
   return Object.values(repeating).some(Boolean);
 };
 
-export {render, getRandomInteger, getElementFromArray, isTaskExpired, isTaskRepeating};
+const humanizeTaskDueDate = (dueDate) => {
+  return dueDate.toLocaleString(`en-US`, {day: `numeric`, month: `long`});
+};
+
+export {render, getRandomInteger, getElementFromArray, isTaskExpired, isTaskRepeating, humanizeTaskDueDate};

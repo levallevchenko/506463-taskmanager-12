@@ -1,4 +1,5 @@
-import {isTaskExpired, isTaskRepeating} from "../util.js";
+import {COLORS} from "../const.js";
+import {isTaskExpired, isTaskRepeating, humanizeTaskDueDate} from "../util.js";
 
 const createTaskEditDateTemplate = (dueDate) => {
   return `<button class="card__date-deadline-toggle" type="button">
@@ -12,7 +13,7 @@ const createTaskEditDateTemplate = (dueDate) => {
             type="text"
             placeholder=""
             name="date"
-            value="${dueDate.toLocaleString(`en-US`, {day: `numeric`, month: `long`})}"
+            value="${humanizeTaskDueDate(dueDate)}"
           />
         </label>
       </fieldset>` : ``}
@@ -42,9 +43,8 @@ const createTaskEditRepeatingTemplate = (repeating) => {
 };
 
 const createTaskEditColorsTemplate = (currentColor) => {
-  const colors = [`black`, `yellow`, `blue`, `green`, `pink`];
 
-  return colors.map((color) => `<input
+  return COLORS.map((color) => `<input
     type="radio"
     id="color-${color}"
     class="card__color-input card__color-input--${color} visually-hidden"
