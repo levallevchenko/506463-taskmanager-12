@@ -48,7 +48,7 @@ const isTaskRepeating = (repeating) => {
 };
 
 const humanizeTaskDueDate = (dueDate) => {
-  return dueDate.toLocaleString(`en-US`, {day: `numeric`, month: `long`});
+  return dueDate.toLocaleString(`en-GB`, {day: `numeric`, month: `long`});
 };
 
 export {render, getRandomInteger, getElementFromArray, isTaskExpired, isTaskExpiringToday, isTaskRepeating, humanizeTaskDueDate};
