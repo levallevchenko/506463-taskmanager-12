@@ -51,4 +51,4 @@ const humanizeTaskDueDate = (dueDate) => {
   return dueDate.toLocaleString(`en-GB`, {day: `numeric`, month: `long`});
 };
 
-export {render, getRandomInteger, getElementFromArray, isTaskExpired, isTaskExpiringToday, isTaskRepeating, humanizeTaskDueDate};
+export {render, getRandomInteger, getElementFromArray, isTaskExpired, isTaskExpiringToday, isTaskRepeating, humanizeTaskDueDate, getCurrentDate};

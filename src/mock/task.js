@@ -1,5 +1,5 @@
 import {COLORS} from "../const.js";
-import {getRandomInteger, getElementFromArray} from "../util.js";
+import {getRandomInteger, getElementFromArray, getCurrentDate} from "../util.js";
 
 const descriptions = [
   `Изучить теорию`,
@@ -17,9 +17,8 @@ const generateDate = () => {
 
   const maxDaysGap = 7;
   const daysGap = getRandomInteger(-maxDaysGap, maxDaysGap);
-  const currentDate = new Date();
 
-  currentDate.setHours(23, 59, 59, 999);
+  const currentDate = getCurrentDate();
 
   currentDate.setDate(currentDate.getDate() + daysGap);
 
