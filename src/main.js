@@ -3,6 +3,7 @@ import FilterView from "./view/filter.js";
 import BoardView from "./view/board";
 import SortView from "./view/task-sort.js";
 import TaskListView from "./view/task-list.js";
+import NoTasksView from "./view/no-tasks.js";
 import LoadMoreButtonView from "./view/load-more-button.js";
 import {render, RenderPosition} from "./util.js";
 import TaskView from "./view/task.js";
@@ -10,7 +11,7 @@ import TaskEditView from "./view/task-edit.js";
 import {generateTask} from "./mock/task.js";
 import {generateFilter} from "./mock/filter.js";
 
-const TASK_COUNT = 18;
+const TASK_COUNT = 22;
 const TASK_COUNT_PER_STEP = 8;
 
 const tasks = new Array(TASK_COUNT).fill().map(generateTask);
@@ -58,7 +59,12 @@ render(siteMainElement, new FilterView(filters).getElement(), RenderPosition.BEF
 
 const boardComponent = new BoardView();
 render(siteMainElement, boardComponent.getElement(), RenderPosition.BEFOREEND);
-render(boardComponent.getElement(), new SortView().getElement(), RenderPosition.AFTERBEGIN);
+
+if (tasks.every((task) => task.isArchive)) {
+  render(boardComponent.getElement(), new NoTasksView().getElement(), RenderPosition.BEFOREEND);
+} else {
+  render(boardComponent.getElement(), new SortView().getElement(), RenderPosition.BEFOREEND);
+}
 
 const taskListComponent = new TaskListView();
 render(boardComponent.getElement(), taskListComponent.getElement(), RenderPosition.BEFOREEND);
